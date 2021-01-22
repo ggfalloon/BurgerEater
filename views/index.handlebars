@@ -1,12 +1,12 @@
-<a href="../public/assets/img/hamburger-png-burger-vector-png-free-transparent.png"></a>
+<img src="/assets/img/burger.png" alt="Burger Clip Art" width="250">
 
-<h2>Eat Those Burgers!</h2>
+<h1>Eat Those Burgers!</h1>
 
 <div>
     <ul>
         {{#each burgers}}
         {{#unless devoured}}
-        {{> burgers/burger-block eaten=false}}
+        {{> burgers eaten=false}}
         {{/unless}}
         {{/each}}
     </ul>
@@ -14,18 +14,18 @@
     <ul>
         {{#each burgers}}
         {{#if devoured}}
-        {{> burgers/burger-block eaten=true}}
+        {{> burgers eaten=true}}
         {{/if}}
         {{/each}}
     </ul>
 
 </div>
 
-<h4>Enter a burger you want to eat, then click "Submit"</h4>
+<h3>Enter a burger you want to eat, then click "Submit"</h3>
 <form class="create-form">
 
     <div class="form-group">
-        <input type="text" id="burgText" name="name">
+        <input type="text" id="burgText">
     </div>
 
 </form>

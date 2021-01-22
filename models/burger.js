@@ -25,3 +25,40 @@ var burger = {
 };
 
 module.exports = burger;
+
+$(".submit").on("click", function (event) {
+    var id = $(this).data("id");
+    var uneaten = $(this).data("uneaten");
+
+    var eatNewBurger = {
+        eaten: uneaten
+    };
+
+    $.ajax("/api/burgers/" + id, {
+        type: "PUT",
+        data: eatNewBurger
+    }).then(
+        function () {
+            console.log("Burger is ready to be devoured", newSleep);
+            location.reload();
+        }
+    );
+});
+
+$(".create-form").on("submit", function (event) {
+    event.preventDefault();
+
+    var newBurger = {
+        name: $("#burgText").val().trim(),
+    };
+
+    $.ajax("/api/burgers", {
+        type: "POST",
+        data: newBurger
+    }).then(
+        function () {
+            console.log("New Burger added");
+            location.reload();
+        }
+    );
+});
