@@ -14,7 +14,7 @@
     <ul>
         {{#each burgers}}
         {{#if devoured}}
-        {{> burgers/burger_block eaten=true}}
+        {{> burgers/burger-block eaten=true}}
         {{/if}}
         {{/each}}
     </ul>
@@ -27,6 +27,5 @@
     <div class="form-group">
         <input type="text" id="burgText">
     </div>
-
+    <button type="submit">Submit</button>
 </form>
-<button type="submit">Submit</button>

@@ -17,6 +17,8 @@ var burger = {
             cb(res);
         });
     },
+
+    // Will add delete button in later iteration---
     // delete: function (condition, cb) {
     //     orm.delete("burgers", condition, function (res) {
     //         cb(res);

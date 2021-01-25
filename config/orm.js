@@ -21,15 +21,15 @@ function updateOne() {
 }
 
 var orm = {
-    all: function (tableInput, cb) {
+    selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) { throw err; }
             cb(result);
         });
     },
-    create: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (" + vals.length;
+    insertOne: function (table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (" + vals.length + ")";
 
         console.log(queryString);
         connection.query(queryString, vals, function (err, result) {
@@ -40,21 +40,17 @@ var orm = {
         });
     },
 
-    update: function (table, objColVals, condition, cb) {
-        var queryString = "UPDATE " + table + " SET " + objColVals + " WHERE " + condition;
-        console.log(queryString);
-        connection.query(queryString, function (err, result) {
+    updateOne: function (table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table + " SET ? WHERE " + condition;
+        console.log(queryString)
+        console.log(objColVals);
+        connection.query(queryString, objColVals, function (err, result) {
             if (err) {
                 throw err;
             }
             cb(result);
         });
-
     },
-
-    delete: function () {
-
-    }
 };
 
 

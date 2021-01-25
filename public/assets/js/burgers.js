@@ -6,6 +6,7 @@ $(function () {
         var eatNewBurger = {
             eaten: uneaten
         };
+        console.log(eatenNewBurger)
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
@@ -25,6 +26,7 @@ $(function () {
             burger_name: $("#burgText").val().trim(),
             devoured: false
         };
+        console.log(newBurger)
 
         $.ajax("/api/burgers", {
             type: "POST",
