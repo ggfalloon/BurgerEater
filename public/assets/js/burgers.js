@@ -1,3 +1,4 @@
+// jQuery event handlers for submiting a new burger and devouring burgers.
 $(function () {
 
     $(".create-form").on("submit", function (event) {

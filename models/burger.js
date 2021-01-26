@@ -1,3 +1,4 @@
+// Brings in the ORM for database interactions
 var orm = require("../config/orm.js");
 
 var burger = {
@@ -18,7 +19,6 @@ var burger = {
         });
     },
 
-    // Will add delete button in later iteration---
     // delete: function (condition, cb) {
     //     orm.delete("burgers", condition, function (res) {
     //         cb(res);

@@ -1,13 +1,7 @@
+// Connects mySQL
 var connection = require("../config/connection.js");
 
-function printQuestionMarks(num) {
-    var arr = [];
-    for (var i = 0; i < num; i++) {
-        arr.push("?");
-    }
-    return arr.toString();
-}
-// retrieves and stores data into database
+// Orm variable retrieves and stores data into database
 
 var orm = {
     selectAll: function (tableInput, cb) {
@@ -17,6 +11,7 @@ var orm = {
             cb(result);
         });
     },
+
     insertOne: function (table, cols, vals, cb) {
 
         var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (?, ?);";
@@ -40,7 +35,16 @@ var orm = {
             }
             cb(result);
         });
-    },
+    }
+
+    // deleteOne: function(table, condition, cb) {
+    //     connection.query("DELETE FROM " + table + " WHERE " + condition, function(err, result) {
+    //         if (err) {
+    //             throw err;
+    //         }
+    //         cb(result);
+    //     });
+    // }
 };
 
 
